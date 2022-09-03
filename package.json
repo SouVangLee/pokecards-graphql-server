@@ -1,0 +1,21 @@
+{
+  "name": "pokecards-server",
+  "version": "1.0.0",
+  "description": "PokeCards Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "Sou Vang (Tommy) Lee",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-datasource-rest": "^3.7.0",
+    "apollo-server": "^3.10.2",
+    "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.2",
+    "nodemon": "^2.0.19"
+  }
+}
