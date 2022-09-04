@@ -1,18 +1,30 @@
 const resolvers = {
   Query: {
-    // returns an array of PokemonCards that will be used
-    // pokeCard: (_, { id }, { dataSources}) => {
-    //   return dataSources.pokeCardAPI.getPokeCards(id);
-    // },
-    pokeCard: (_, { id }, { dataSources }) => {
-      const res = dataSources.pokeCardAPI.getPokeCard(id);
-      console.log('res', res);
-      return res;
+    // returns an array of Pokemon Cards by name
+    pokeCards: async (_, { name }, { dataSources}) => {
+      const { data } = await dataSources.pokeCardAPI.getPokeCards(name);
+      return data.map(pokeCard => {
+        return {
+          id: pokeCard.id,
+          name: pokeCard.name,
+          images : {
+            small: pokeCard.images.small,
+            large: pokeCard.images.large,
+          },
+        };
+      });
+    },
+
+    // get a single Pokemon Card by ID
+    pokeCard: async (_, { id }, { dataSources }) => {
+      const { data }= await dataSources.pokeCardAPI.getPokeCard(id);
+      return {
+        id: data.id,
+        name: data.name,
+        images: data.images,
+      }
     },
   },
-  PokemonCard: {
-
-  }
 };
 
 module.exports = resolvers;

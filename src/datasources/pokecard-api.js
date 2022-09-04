@@ -3,11 +3,15 @@ const { RESTDataSource } = require('apollo-datasource-rest');
 class PokeCardAPI extends RESTDataSource {
   constructor() {
     super();
-    // this.baseURL = 'https://api.pokemontcg.io/v2/';
+    this.baseURL = 'https://api.pokemontcg.io/v2/';
   }
 
-  async getPokeCard(id) {
-    return await this.get(`https://api.pokemontcg.io/v2/cards/${id}`);
+  getPokeCards(name) {
+    return this.get(`cards/?q=name:${name}`);
+  }
+
+  getPokeCard(id) {
+    return this.get(`cards/${id}`);
   }
 }
 
