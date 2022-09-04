@@ -3,7 +3,7 @@ const { gql } = require('apollo-server');
 const schema = gql`
   type Query {
     "Query for an array of Pokemon Cards by providing a name"
-    pokeCards(name: String): [PokemonCard]
+    pokeCardsList(name: String): [PokemonCard]
     "Query to get a pokemon card by providing an id"
     pokeCard(id: ID!): PokemonCard!
   }

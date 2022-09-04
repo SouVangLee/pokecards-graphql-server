@@ -1,7 +1,7 @@
 const resolvers = {
   Query: {
     // returns an array of Pokemon Cards by name
-    pokeCards: async (_, { name }, { dataSources}) => {
+    pokeCardsList: async (_, { name }, { dataSources}) => {
       const { data } = await dataSources.pokeCardAPI.getPokeCards(name);
       return data.map(pokeCard => {
         return {
