@@ -1,9 +1,9 @@
-import { gql } from 'apollo-server';
+const { gql } = require('apollo-server');
 
-const typeDefs = gql`
+const schema = gql`
   type Query {
-    "Query to get an array of pokemon cards"
-    pokedex: [PokemonCard]
+    "Query to get an array of pokemon cards with the specified name"
+    pokeCard(id: ID!): PokemonCard
   }
 
   "A pokemon card"
@@ -12,14 +12,30 @@ const typeDefs = gql`
     id: String!
     "The name of the pokemon card"
     name: String!
-    "An object containg the image urls"
-    images: PokemonImages!
+    # "An object containg the image urls"
+    # images: PokemonImages!
+    # "The set the pokemon card was released in"
+    # set: SetDetails!
   }
 
-  type PokemonImages {
-    "The url to the small image of the pokemon card"
-    small: String!
-    "The url to the big image of the pokemon card"
-    large: String!
-  }
+  # type SetDetails {
+  #   "The id of the set"
+  #   id: String!
+  #   "The name of the set the Pokemon Card was released in"
+  #   name: String!
+  #   "The name of the series the Pokemon Card was released in"
+  #   series: String!
+  #   "The date the Pokemon Card was released"
+  #   releaseDate: String!
+  #   # printedTotal: String!
+  # }
+
+  # type PokemonImages {
+  #   "The url to the small image of the pokemon card"
+  #   small: String!
+  #   "The url to the big image of the pokemon card"
+  #   large: String!
+  # }
 `;
+
+module.exports = schema;
