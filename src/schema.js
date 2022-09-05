@@ -16,21 +16,24 @@ const schema = gql`
     name: String!
     "An object containg the image urls"
     images: PokemonImages!
-    # "The set the pokemon card was released in"
-    # set: SetDetails!
+    "The set the pokemon card was released in"
+    set: SetDetails!
+    "The rarity of the Pokemon Card"
+    rarity: String!
   }
 
-  # type SetDetails {
-  #   "The id of the set"
-  #   id: String!
-  #   "The name of the set the Pokemon Card was released in"
-  #   name: String!
-  #   "The name of the series the Pokemon Card was released in"
-  #   series: String!
-  #   "The date the Pokemon Card was released"
-  #   releaseDate: String!
-  #   # printedTotal: String!
-  # }
+  type SetDetails {
+    "The id of the set"
+    id: String!
+    "The name of the set the Pokemon Card was released in"
+    name: String!
+    "The name of the series the Pokemon Card was released in"
+    series: String!
+    "The date the Pokemon Card was released"
+    releaseDate: String!
+    "The number of Pokemon Cards that were printed"
+    printedTotal: Int!
+  }
 
   type PokemonImages {
     "The url to the small image of the pokemon card"

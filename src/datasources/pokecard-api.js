@@ -7,11 +7,11 @@ class PokeCardAPI extends RESTDataSource {
   }
 
   getPokeCards(name) {
-    return this.get(`cards/?q=name:${name}&select=id,name,images,set`);
+    return this.get(`cards/?q=name:${name}*&select=id,name,images,set,rarity`);
   }
 
   getPokeCard(id) {
-    return this.get(`cards/${id}?select=id,name,images,set`);
+    return this.get(`cards/${id}?select=id,name,images,set,rarity`);
   }
 }
 
