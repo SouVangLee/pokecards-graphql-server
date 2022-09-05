@@ -27,6 +27,7 @@ const resolvers = {
       }
     },
 
+    // returns a Pokemon Card, provided by an id
     pokeCard: async (_, { id }, { dataSources }) => {
       const { data } = await dataSources.pokeCardAPI.getPokeCard(id);
       return {
